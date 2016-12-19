@@ -8,10 +8,10 @@ var app = express();
 // HTML ENDPOINTS
 app.get('/', function test(req, res){
   console.log("Hello world");
-  res.json("Hello there")
+  res.sendFile('/views/index.html', {root: __dirname});
 })
 
-// PROCESS.ENV IS USED FOR HEROKU. process.env.PORT || 
+// PROCESS.ENV IS USED FOR HEROKU. process.env.PORT ||
 // FOR LOCAL ONLY, JUST 3000
 app.listen(3000, function (){
   console.log("Express server is running")
