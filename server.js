@@ -2,12 +2,14 @@
 var express = require('express');
 var app = express();
 
+// SERVER.JS
+app.use(express.static('public'));
 // var body-parser = require('body-parser');
 // app.use(body)
 
 // HTML ENDPOINTS
 app.get('/', function test(req, res){
-  console.log("Hello world");
+  // console.log("Hello world");
   res.sendFile('/views/index.html', {root: __dirname});
 })
 
