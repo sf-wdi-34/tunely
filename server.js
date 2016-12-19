@@ -4,7 +4,8 @@ var express = require('express'),
 
 
 app.get('/', function(req, res){
-  res.send('server.js online');
+  console.log(__dirname);
+  res.sendFile('views/index.html', { root: __dirname});
 });
 
 app.listen(process.env.port || 3000, function(){
