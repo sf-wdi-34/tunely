@@ -42,11 +42,28 @@ $(document).ready(function() {
   var albumHtml = $('#album-location').html(),
   albumHandlebars = Handlebars.compile(albumHtml);
   // this function takes a single album and renders it to the page
-  function renderAlbum(album) {
-    console.log('rendering album:', album);
-    $('.panel-body').append(albumHandlebars({album: album}));
+  function renderAlbum(albums) {
 
+    console.log('rendering album:', albums);
+    albums.forEach(function(album){
+      $('.panel-body').append(albumHandlebars({album: album}));
+    })
   }
 
-  renderAlbum(sampleAlbums[0]);
+  $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    success: handleSuccess,
+    error: handleError
+  })
+
+  renderAlbum(sampleAlbums);
 });
+
+function handleSuccess(albums){
+  console.log('way to go, ajax succes.');
+}
+
+function handleError(){
+  console.log('ya done messed up a-aron.  ajax error');
+}

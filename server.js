@@ -10,6 +10,9 @@ app.get('/', function(req, res){
   res.sendFile('views/index.html', { root: __dirname});
 });
 app.get('/api', controllers.api.index);
+
 app.listen(process.env.port || 3000, function(){
   console.log('express server online on port ', 3000);
 });
+
+app.get('/api/albums', )
