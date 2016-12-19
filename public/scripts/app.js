@@ -43,13 +43,28 @@ $(document).ready(function() {
   var albumSource = $('#albumTemplate').html();
   template = Handlebars.compile(albumSource);
 
+  $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    success: handleSuccess,
+    error: handleError
+  });
+
 // renderAlbum(sampleAlbums[0])
 
-sampleAlbums.forEach(renderAlbum);
+// sampleAlbums.forEach(renderAlbum);
 
 
+function handleSuccess(json){
+  console.log(json);
+json.albums.forEach(renderAlbum);
+}
 
 
+function handleError(e) {
+  console.log('uh oh');
+  $('#appendAlbum').text('Failed to load albums, is the server working?');
+}
 
 });
 
