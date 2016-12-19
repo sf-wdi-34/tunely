@@ -35,18 +35,21 @@ sampleAlbums.push({
 /* end of hard-coded data */
 
 
-
-
 $(document).ready(function() {
   console.log('app.js loaded!');
+  renderAlbum(sampleAlbums[0]);
 });
-
-
-
 
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
-  console.log('rendering album:', album);
+  var source = $('#album-template').html();
+  var albumTemplate = Handlebars.compile(source);
+  var albumHtml = albumTemplate({
+    name: album.name,
+    artistName: album.artistName,
+    releaseDate: album.releaseDate
+  });
+  $('.panel-body').append(albumHtml);
 
 }
