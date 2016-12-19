@@ -4,6 +4,10 @@ var app = express();
 
 // SERVER.JS
 app.use(express.static('public'));
+
+// DATABASE
+var db = require('./models')
+
 // var body-parser = require('body-parser');
 // app.use(body)
 
