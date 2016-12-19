@@ -1,0 +1,18 @@
+// REQUIRED EXPRESS
+var express = require('express');
+var app = express();
+
+// var body-parser = require('body-parser');
+// app.use(body)
+
+// HTML ENDPOINTS
+app.get('/', function test(req, res){
+  console.log("Hello world");
+  res.json("Hello there")
+})
+
+// PROCESS.ENV IS USED FOR HEROKU. process.env.PORT || 
+// FOR LOCAL ONLY, JUST 3000
+app.listen(3000, function (){
+  console.log("Express server is running")
+});
