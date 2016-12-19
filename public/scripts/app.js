@@ -77,6 +77,11 @@ $(document).ready(function() {
     $('#appendAlbum').text('Failed to load albums, is the server working?');
   };
 
+  function newAlbumSuccess(json){
+    console.log(json);
+    renderAlbum(json);
+  }
+
 });
 
 
