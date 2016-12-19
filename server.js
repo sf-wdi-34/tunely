@@ -6,7 +6,10 @@ var app = express();
 app.use(express.static('public'));
 
 // DATABASE
-var db = require('./models')
+var db = require('./models');
+
+// LINKING CONTROLLERS FILE TO SERVER FILE
+var controllers = require('./controllers');
 
 // var body-parser = require('body-parser');
 // app.use(body)
@@ -16,6 +19,12 @@ app.get('/', function test(req, res){
   // console.log("Hello world");
   res.sendFile('/views/index.html', {root: __dirname});
 })
+
+
+// ROUTES
+app.get('/api', controllers.api.index);
+
+
 
 // PROCESS.ENV IS USED FOR HEROKU. process.env.PORT ||
 // FOR LOCAL ONLY, JUST 3000
