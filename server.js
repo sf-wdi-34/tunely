@@ -1,6 +1,6 @@
 var express = require('express'),
     // bodyParser = require('body-parser'),
-    db = require('./models'),
+    // db = require('./models'),
     app = express(),
     //server.js
     controllers = require('./controllers');

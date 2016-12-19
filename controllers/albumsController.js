@@ -1,9 +1,15 @@
 // controllers/albumsController.js
 
+var db = require('../models');
+
 // GET /api/albums
 function index(req, res) {
-  res.json(albums);
-  // send back all albums as JSON
+  db.Album.find({}, function(err, albums){
+    if (err) {
+      return console.log('Error: ' + err);
+    }
+    res.json(albums);
+  })
 }
 
 // POST /api/albums
