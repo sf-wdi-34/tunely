@@ -57,12 +57,13 @@ $(document).ready(function() {
 
 function handleSuccess(json){
   console.log(json);
-json.albums.forEach(renderAlbum);
+json.forEach(renderAlbum);
 }
 
 
 function handleError(e) {
-  console.log('uh oh');
+  console.log('uh oh', e);
+
   $('#appendAlbum').text('Failed to load albums, is the server working?');
 }
 
