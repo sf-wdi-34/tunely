@@ -2,7 +2,7 @@
 var express = require('express'),
   bodyParser = require('body-parser');
 // connect to db models
-// var db = require('./models');
+var db = require('./models');
 // generate a new express app and call it 'app'
 var app = express();
 // serve static files in public
