@@ -39,6 +39,34 @@ sampleAlbums.push({
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+
+  var albumSource = $('#albumTemplate').html();
+  template = Handlebars.compile(albumSource);
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    success: handleSuccess,
+    error: handleError
+  });
+
+// renderAlbum(sampleAlbums[0])
+
+// sampleAlbums.forEach(renderAlbum);
+
+
+function handleSuccess(json){
+  console.log(json);
+json.forEach(renderAlbum);
+}
+
+
+function handleError(e) {
+  console.log('uh oh', e);
+
+  $('#appendAlbum').text('Failed to load albums, is the server working?');
+}
+
 });
 
 
@@ -47,6 +75,8 @@ $(document).ready(function() {
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
-  console.log('rendering album:', album);
 
+  console.log('rendering album:', album);
+var albumsHtml = template(album);
+ $('#appendAlbum').append(albumsHtml);
 }
