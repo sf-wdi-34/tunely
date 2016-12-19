@@ -16,6 +16,8 @@ app.get('/', function (req, res) {
 
 app.get('/api', controllers.api.index);
 
+app.get('/api/albums', controllers.albums.index);
+
 
 app.listen(3000, function() {
     console.log("Listening at Port 3000!");
