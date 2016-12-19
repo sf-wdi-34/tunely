@@ -3,8 +3,12 @@ var mongoose = require('mongoose'),
   // Author = require('./author');
 
 var AlbumSchema = new Schema({
-    name: String
+    artistName: String,
+    name: String,
+    releaseDate: String,
+    genres: [String]
   });
+
   
 // var BookSchema = new Schema({
 //      title: String,

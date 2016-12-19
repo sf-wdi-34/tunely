@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 app.get('/api', controllers.api.index);
 
 ////Get all Albums
-
+app.get('/api/albums', controllers.albums.index);
 // app.get('/api/albums', function(req, res){
 //   console.log("albums")
 //   res.send("hello albums")
