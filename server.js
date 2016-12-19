@@ -1,7 +1,8 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    db = require('./models');
 
-
+  app.use(express.static('public'));
 
 app.get('/', function(req, res){
   console.log(__dirname);
